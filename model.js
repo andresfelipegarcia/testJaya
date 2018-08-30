@@ -40,11 +40,9 @@ function getCurrentWeather(cityName){
 function createPdf(){
   var pdf = require('pdfkit');
   var fs = require('fs');
-
   var myDoc = new pdf;
 
   myDoc.pipe(fs.createWriteStream(name+region+'.pdf'));
-
   myDoc.font('Times-Roman')
         .fontSize(20)
         .text('City Name: '+name + '\n' + 'Region: '+ region + '\n' +
@@ -52,7 +50,6 @@ function createPdf(){
                '\n' + 'Longitude: ' + longitude + '\n' + 'Farenheit: ' + farenheit
                + '\n' + 'Celsius: '+ celsius + '\n' + 'Humidity: ' + humidity +
                '\n' + 'Speed KM: ' + km + '\n' + 'Speed Miles: ' + miles , 50,50);
-
   myDoc.end(); 
 }
 
